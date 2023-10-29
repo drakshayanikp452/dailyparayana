@@ -1,7 +1,7 @@
 package com.saibaba.repository;
 
-import com.saibaba.entity.Groups;
 
+import com.saibaba.entity.Roles;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +10,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 @SpringBootTest
-public class GroupsRepositoryTest {
+public class RolesRepositoryTest {
     @Autowired
-    private GroupsRepository groupsRepository;
+    private RolesRepository rolesRepository;
 
     @Test
     void validateFetchRecords(){
-      List<Groups> groupsList= groupsRepository.findAll();
-        Assertions.assertTrue(groupsList.size()==10);
+      List<Roles> rolesList= rolesRepository.findAll();
+        Assertions.assertTrue(rolesList.size()==6);
     }
 }
