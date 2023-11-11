@@ -12,14 +12,14 @@ info:
 servers:
   - url: https://saibabasatcharitraparayana/
 tags:
-  - name: groups
+  - name: Daily Parayana
     description: Sri Sai Baba Parayana Groups.
 
 paths:
   /groups:
     get:
       tags:
-        - groups
+        - Daily Parayana
       summary: Fetch Parayana Groups
       description: Fetch Sri Sai Baba Satcharitra Parayana Groups.
       operationId: fetch_groups
@@ -31,12 +31,33 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/groups_response'   
+                  $ref: '#/components/schemas/groups_response'
         '400':
           description: Invalid request Error
         '500':
-          description: Internal Server Error 
-  
+          description: Internal Server Error
+
+  /roles:
+    get:
+      tags:
+        - Daily Parayana
+      summary: Fetch Parayana Roles
+      description: Fetch Sri Sai Baba Satcharitra Parayana Roles.
+      operationId: fetch_roles
+      responses:
+        '200':
+          description: list of roles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/roles_response'
+        '400':
+          description: Invalid request Error
+        '500':
+          description: Internal Server Error
+
 components:
   schemas:
     groups_response:
@@ -62,7 +83,29 @@ components:
         last_updated_user:
           type: string
           example: Sai Baba
-          
-        
+
+    roles_response:
+      type: object
+      properties:
+        role_id:
+          type: string
+          example: Group100
+        name:
+          type: string
+          example: group1
+        created_date:
+          type: string
+          format: date
+          example: 24-Oct-2023
+        created_user:
+          type: string
+          example: Sai Baba
+        last_updated_date:
+          type: string
+          format: date
+          example: 24-Oct-2023
+        last_updated_user:
+          type: string
+          example: Sai Baba
  
  
